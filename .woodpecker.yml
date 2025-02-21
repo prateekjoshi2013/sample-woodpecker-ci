@@ -2,15 +2,21 @@ when:
   - event: [push]
 
 steps:
-  - name: lint
+  - name: install
     image: node:latest
     commands:
       - echo "Installing dependencies..."
+      - npm --prefix sample-react install
+
+  - name: lint
+    image: node:latest
+    commands:
+      - echo "Linting..."
       - npm --prefix sample-react run lint 
 
   - name: build
     image: node:latest
     commands:
-      - echo "Running jest tests..."
+      - echo "build..."
       - npm --prefix sample-react run build
 
