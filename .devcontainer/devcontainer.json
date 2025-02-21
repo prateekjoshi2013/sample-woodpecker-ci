@@ -1,0 +1,19 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
+{
+	"name": "Existing Dockerfile",
+	"dockerComposeFile": "./docker-compose.yml",
+	"service": "devcontainer",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"postStartCommand": "git config --global --add safe.directory /workspaces/${localWorkspaceFolderBasename} && git config --global user.email 'prateekjoshi2013@gmail.com' && ssh -T git@github.com",
+	"customizations": {
+		"extensions.verifySignature": false,
+		"vscode": {
+			"extensions": [
+				// add extensions you want installed in dev env
+				// use the id which can be copied from vscode extension page
+				// for ex: "hashicorp.terraform"
+			]
+		}
+	}
+}
